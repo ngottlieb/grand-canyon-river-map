@@ -9,6 +9,15 @@ exports.files = {
   stylesheets: {joinTo: 'app.css'}
 };
 
+exports.npm = {
+	styles: {
+		'leaflet': ['dist/leaflet.css']
+	},
+	globals: {
+		L: 'leaflet'
+	}
+}
+
 exports.plugins = {
   babel: {presets: ['latest']}
 };
