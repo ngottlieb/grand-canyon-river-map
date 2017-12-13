@@ -1,6 +1,7 @@
 'use strict';
 
 const rivermiles = require('rivermiles');
+const camps = require('camps');
 
 const Map = {
 	init() {
@@ -26,7 +27,26 @@ const Map = {
 			}
 		});
 		this.riverMilesLayer.addTo(this.map);
+		
+		this.loadCamps();
+	},
+	
+	loadCamps() {
+		this.campsLayer = L.geoJson(camps.camps, {
+			onEachFeature: Map.onEachCamp
+		});
+		this.campsLayer.addTo(this.map);
+	},
+	
+	onEachCamp(feature, layer) {
+		layer.bindTooltip(Map.getCampDescription(feature));
+	},
+	
+	getCampDescription(feature) {
+		var output = "<h3>" + feature.properties.CAMP_NAME + " - Mile " + String(feature.properties.GCMRC_MILE.toFixed(1)) + "</h3>";
+		return output;
 	}
+	
 };
 
 module.exports = Map;
