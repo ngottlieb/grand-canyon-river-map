@@ -13764,10 +13764,5 @@ exports.map = createMap;
 });
 require.alias("leaflet/dist/leaflet-src.js", "leaflet");require.register("___globals___", function(exports, require, module) {
   
-
-// Auto-loaded modules from config.npm.globals.
-window.L = require("leaflet");
-
-
 });})();require('___globals___');
 

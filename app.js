@@ -168,6 +168,7 @@ require.register("map.js", function(exports, require, module) {
 
 const rivermiles = require('rivermiles');
 const camps = require('camps');
+const L = require('leaflet');
 
 const Map = {
 	init() {
@@ -226,10 +227,5 @@ module.exports = {
 
 require.register("___globals___", function(exports, require, module) {
   
-
-// Auto-loaded modules from config.npm.globals.
-window.L = require("leaflet");
-
-
 });})();require('___globals___');
 
