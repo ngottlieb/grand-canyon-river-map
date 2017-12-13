@@ -12,9 +12,6 @@ exports.files = {
 exports.npm = {
 	styles: {
 		'leaflet': ['dist/leaflet.css']
-	},
-	globals: {
-		L: 'leaflet'
 	}
 }
 

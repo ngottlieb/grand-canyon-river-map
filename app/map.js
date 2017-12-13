@@ -2,6 +2,7 @@
 
 const rivermiles = require('rivermiles');
 const camps = require('camps');
+const L = require('leaflet');
 
 const Map = {
 	init() {
