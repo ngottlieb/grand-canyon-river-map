@@ -55,13 +55,10 @@ const Map = {
 		this.rapidsLayer = L.geoJson(Rapids.rapids, {
 			pointToLayer: function(feature, latlng) {
 				return L.marker(latlng, {
-					icon: L.divIcon({
-						className: 'rapid-label',
-						html: "<span>" + feature.properties.RAPID + "</span>"
-					})
-				});
-			}
-		});
+						title: "<span>" + feature.properties.RAPID + "</span>"
+					}).bindTooltip(feature.properties.RAPID);
+				}
+			});
 		this.rapidsLayer.addTo(this.map);
 	}
 	
