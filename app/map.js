@@ -1,8 +1,9 @@
 'use strict';
 
-const rivermiles = require('rivermiles');
-const camps = require('camps');
+const Rivermiles = require('rivermiles');
+const Camps = require('camps');
 const L = require('leaflet');
+const Rapids = require('rapids');
 
 const Map = {
 	init() {
@@ -17,7 +18,7 @@ const Map = {
 	},
 	
 	loadData() {
-		this.riverMilesLayer = L.geoJson(rivermiles.rivermiles, {
+		this.riverMilesLayer = L.geoJson(Rivermiles.rivermiles, {
 			pointToLayer: function (feature, latlng) {
 				return L.marker(latlng, {
 					icon: L.divIcon({
@@ -30,10 +31,12 @@ const Map = {
 		this.riverMilesLayer.addTo(this.map);
 		
 		this.loadCamps();
+		
+		this.loadRapids();
 	},
 	
 	loadCamps() {
-		this.campsLayer = L.geoJson(camps.camps, {
+		this.campsLayer = L.geoJson(Camps.camps, {
 			onEachFeature: Map.onEachCamp
 		});
 		this.campsLayer.addTo(this.map);
@@ -46,6 +49,20 @@ const Map = {
 	getCampDescription(feature) {
 		var output = "<h3>" + feature.properties.CAMP_NAME + " - Mile " + String(feature.properties.GCMRC_MILE.toFixed(1)) + "</h3>";
 		return output;
+	},
+	
+	loadRapids() {
+		this.rapidsLayer = L.geoJson(Rapids.rapids, {
+			pointToLayer: function(feature, latlng) {
+				return L.marker(latlng, {
+					icon: L.divIcon({
+						className: 'rapid-label',
+						html: "<span>" + feature.properties.RAPID + "</span>"
+					})
+				});
+			}
+		});
+		this.rapidsLayer.addTo(this.map);
 	}
 	
 };
