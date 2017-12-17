@@ -9,7 +9,7 @@ const Map = {
 	init() {
 		this.map = L.map('map').setView([36.865, -111.587], 13);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-		    attribution: 'hello',
+		    attribution: 'data courtesy of the USGS and GCMRC',
 				minZoom: 10,
 		    id: 'mapbox.outdoors',
 		    accessToken: 'pk.eyJ1IjoibmdvdHRsaWViIiwiYSI6ImNqYjVlMmJlazhmYm4yd3J6Zm0wbjF0bnkifQ.WY_Tmu_nZtiUe4on-Gk3zA'
