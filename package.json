@@ -10,12 +10,17 @@
     "build": "brunch build --production"
   },
   "dependencies": {
-    "leaflet": "^1.2.0"
+    "leaflet": "^1.2.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-leaflet": "^1.7.8"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2",
     "babel-brunch": "~6.0",
     "babel-preset-latest": "^6",
+    "babel-preset-react": "^6.24.1",
     "brunch": "^2",
     "clean-css-brunch": "^2",
     "uglify-js-brunch": "^2"
