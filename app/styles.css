@@ -1,4 +1,8 @@
-html, body, #map {
+html, body, #app {
     margin: 0;
     height: 100%;
+}
+
+.leaflet-container {
+  height: 100%;
 }
