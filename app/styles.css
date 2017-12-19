@@ -1,8 +1,20 @@
-html, body, #app {
+html, body, #appContainer, #app {
     margin: 0;
     height: 100%;
 }
 
 .leaflet-container {
   height: 100%;
+}
+
+.info-display {
+  height: 50%;
+  width: 30%;
+  background-color: white;
+  float:right;
+  margin: 10px;
+}
+
+button.close-display {
+  float: right;
 }

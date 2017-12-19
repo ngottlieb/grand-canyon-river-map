@@ -24,9 +24,9 @@ export default class CanyonMap extends React.Component {
           attribution="data <a href='https://www.gcmrc.gov/geospatial/default.aspx'>courtesy of the USGS and GCMRC</a>"
           minZoom={10}
         />
-        <RiverMilesLayer />
-        <CampsLayer />
-        <RapidsLayer />
+        <RiverMilesLayer updateDisplayObject={this.props.updateDisplayObject}/>
+        <CampsLayer updateDisplayObject={this.props.updateDisplayObject}/>
+        <RapidsLayer updateDisplayObject={this.props.updateDisplayObject}/>
       </Map>
     );
     return map;
@@ -54,6 +54,10 @@ class RiverMilesLayer extends React.Component {
 }
 
 class CampsLayer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onEachFeature = this.onEachFeature.bind(this);
+  }
   render() {
     return (
       <GeoJSON
@@ -64,11 +68,18 @@ class CampsLayer extends React.Component {
   }
   
   onEachFeature(feature, layer) {
-    layer.bindTooltip("<h3>" + feature.properties.CAMP_NAME + " - Mile " + String(feature.properties.GCMRC_MILE.toFixed(1)) + "</h3>");
+    return layer.bindTooltip(feature.properties.CAMP_NAME).on('click', (ev) => {
+      this.props.updateDisplayObject(feature);
+    });
   }
 }
 
 class RapidsLayer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onPointToLayer = this.onPointToLayer.bind(this);
+  }
+  
   render() {
     return (
       <GeoJSON
@@ -81,6 +92,6 @@ class RapidsLayer extends React.Component {
   onPointToLayer(feature, latlng) {
     return new L.marker(latlng, {
       title: "<span>" + feature.properties.RAPID + "</span>"
-    }).bindTooltip(feature.properties.RAPID);
+    }).bindTooltip(feature.properties.RAPID).on('click', (ev) => {this.props.updateDisplayObject(feature)});
   }
 }
