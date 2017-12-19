@@ -5,14 +5,25 @@ html, body, #appContainer, #app {
 
 .leaflet-container {
   height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 .info-display {
-  height: 50%;
-  width: 30%;
+  z-index: 100;
+
   background-color: white;
-  float:right;
-  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.object-detail {
+  padding: 10px 30px;
+}
+
+.object-detail dt {
+  font-weight: bold;
 }
 
 button.close-display {

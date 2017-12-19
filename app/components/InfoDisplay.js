@@ -55,12 +55,11 @@ class CampDetail extends React.Component {
   render() {
     const camp = this.props.camp;
     const attributes = {
-      camp_size: camp.NPS_SIZE,
       alternate_name: camp.ALT_1,
+      camp_size: camp.NPS_SIZE,
       martin_guidebook_page: camp.MARTIN_PAGE,
       belknap_guidebook_page: camp.BELKNAP_PAGE,
     };
-    console.log(camp);
     return (
       <div className='object-detail'>
         <h3>{camp.CAMP_NAME} - Mile {camp.GCMRC_MILE.toFixed(1)}</h3>
