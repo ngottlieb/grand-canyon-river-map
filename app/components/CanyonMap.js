@@ -18,9 +18,9 @@ export default class CanyonMap extends React.Component {
     const map = (
       <Map center={position} zoom={13}>
         <TileLayer
-          url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+          url="https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}"
           accessToken="pk.eyJ1IjoibmdvdHRsaWViIiwiYSI6ImNqYjVlMmJlazhmYm4yd3J6Zm0wbjF0bnkifQ.WY_Tmu_nZtiUe4on-Gk3zA"
-          id="mapbox.outdoors"
+          id="outdoors-v10"
           attribution="data <a href='https://www.gcmrc.gov/geospatial/default.aspx'>courtesy of the USGS and GCMRC</a>"
           minZoom={10}
         />
